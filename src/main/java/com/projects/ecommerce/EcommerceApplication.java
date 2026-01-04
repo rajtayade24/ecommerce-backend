@@ -12,12 +12,14 @@ import java.util.Arrays;
 public class EcommerceApplication {
 
     @Autowired
-    private Environment env;  // Inject Spring Environment
+    private Environment env;
 
     @PostConstruct
     public void showEnv() {
         System.out.println("Active Profiles: " + Arrays.toString(env.getActiveProfiles()));
-        System.out.println("DB URL: " + env.getProperty("DB_URL"));
+        System.out.println("DB_URL: " + env.getProperty("DB_URL"));
+        System.out.println("DB_USERNAME: " + env.getProperty("DB_USERNAME"));
+        System.out.println("PORT: " + env.getProperty("PORT"));
     }
 	public static void main(String[] args) {
 		SpringApplication.run(EcommerceApplication.class, args);
